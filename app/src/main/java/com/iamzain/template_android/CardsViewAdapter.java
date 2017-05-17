@@ -1,5 +1,6 @@
 package com.iamzain.template_android;
 
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,6 +42,7 @@ public class CardsViewAdapter extends RecyclerView.Adapter<CardsViewAdapter.Card
     }
 
     public class CardViewHolder extends RecyclerView.ViewHolder {
+        FloatingActionButton fab;
         public TextView title, description, meta;
 
         public CardViewHolder(View view) {
@@ -48,6 +50,13 @@ public class CardsViewAdapter extends RecyclerView.Adapter<CardsViewAdapter.Card
             title = (TextView) view.findViewById(R.id.title);
             description = (TextView) view.findViewById(R.id.description);
             meta = (TextView) view.findViewById(R.id.meta);
+/*            fab = (FloatingActionButton) view.findViewById(R.id.fab);
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //TODO
+                }
+            });*/
         }
     }
 }
