@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.provider.MediaStore;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
@@ -98,9 +99,11 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
     {
         //if you want to update the items at a later time it is recommended to keep it in a variable
         PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(1).withName(R.string.drawer_item_home).withIcon(ic_home);
-        SecondaryDrawerItem settings = new SecondaryDrawerItem().withIdentifier(2).withName(R.string.drawer_item_settings).withIcon(ic_settings);
-        SecondaryDrawerItem feedback = new SecondaryDrawerItem().withIdentifier(3).withName(R.string.drawer_item_feedback).withIcon(ic_feedback);
-        SecondaryDrawerItem about = new SecondaryDrawerItem().withIdentifier(4).withName(R.string.drawer_item_about).withIcon(ic_info);
+        PrimaryDrawerItem item3 = new PrimaryDrawerItem().withIdentifier(3).withName(R.string.drawer_item_video).withIcon(ic_home);
+
+        SecondaryDrawerItem settings = new SecondaryDrawerItem().withIdentifier(4).withName(R.string.drawer_item_settings).withIcon(ic_settings);
+        SecondaryDrawerItem feedback = new SecondaryDrawerItem().withIdentifier(5).withName(R.string.drawer_item_feedback).withIcon(ic_feedback);
+        SecondaryDrawerItem about = new SecondaryDrawerItem().withIdentifier(6).withName(R.string.drawer_item_about).withIcon(ic_info);
 
         //create the drawer and remember the `Drawer` navigationDrawer object
         final Drawer navigationDrawer = new DrawerBuilder()
@@ -110,6 +113,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
                 .withActionBarDrawerToggle(true)
                 .addDrawerItems(
                         item1,
+                        item3,
                         new DividerDrawerItem(),
                         settings,
                         feedback,
@@ -134,12 +138,17 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
                     fragmentTransaction.commit();
                     break;
 
-                case 2:
+                case 3:
+                    intent = new Intent(MainActivity.this, VideoActivity.class);
+                    startActivity(intent);
+                    break;
+
+                case 4:
                     intent = new Intent(MainActivity.this, SettingsActivity.class);
                     startActivity(intent);
                     break;
 
-                case 3:
+                case 5:
                     //Start a new activity for sending a feedback email
                     intent = new Intent(android.content.Intent.ACTION_SEND);
                     intent.setType("text/html");
@@ -149,7 +158,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
                     startActivity(Intent.createChooser(intent, getString(R.string.title_send_feedback)));
                     break;
 
-                case 4:
+                case 6:
                     intent = new Intent(MainActivity.this, AboutActivity.class);
                     startActivity(intent);
                     break;
