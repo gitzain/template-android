@@ -27,9 +27,15 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".AboutActivity" />
         <activity android:name=".SettingsActivity" />
+
+        <activity
+            android:name=".CardsActivity"
+            android:label="@string/title_activity_cards"></activity>
+
         <activity android:name=".VideoActivity"
             android:configChanges="orientation|screenSize">
         </activity>
+
     </application>
 
 </manifest>

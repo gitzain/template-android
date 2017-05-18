@@ -35,7 +35,7 @@ import java.util.HashMap;
 
 import static com.iamzain.template_android.R.drawable.*;
 
-public class MainActivity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity {
 
     // Session Manager Class
     SessionManager session;
@@ -50,19 +50,13 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
         setContentView(R.layout.activity_main);
 
         session = new SessionManager(getApplicationContext());
-        session.checkLogin();
-        HashMap<String, String> user = session.getUserDetails();
-        String email = user.get(SessionManager.KEY_EMAIL);
+        //session.checkLogin();
+        //HashMap<String, String> user = session.getUserDetails();
+        //String email = user.get(SessionManager.KEY_EMAIL);
 
         createToolbar();
-        AccountHeader accountHeader = createAccountHeader(email);
+        AccountHeader accountHeader = createAccountHeader("test");
         createNavigationDrawer(accountHeader);
-
-        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
-        HomeFragment fragment = new HomeFragment();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.fragment_container,fragment);
-        fragmentTransaction.commit();
     }
 
     private void createToolbar()
@@ -99,8 +93,9 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
     {
         //if you want to update the items at a later time it is recommended to keep it in a variable
         PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(1).withName(R.string.drawer_item_home).withIcon(ic_home);
+        PrimaryDrawerItem item2 = new PrimaryDrawerItem().withIdentifier(2).withName(R.string.drawer_item_cards).withIcon(ic_dashboard);
         PrimaryDrawerItem item3 = new PrimaryDrawerItem().withIdentifier(3).withName(R.string.drawer_item_video).withIcon(ic_home);
-
+      
         SecondaryDrawerItem settings = new SecondaryDrawerItem().withIdentifier(4).withName(R.string.drawer_item_settings).withIcon(ic_settings);
         SecondaryDrawerItem feedback = new SecondaryDrawerItem().withIdentifier(5).withName(R.string.drawer_item_feedback).withIcon(ic_feedback);
         SecondaryDrawerItem about = new SecondaryDrawerItem().withIdentifier(6).withName(R.string.drawer_item_about).withIcon(ic_info);
@@ -113,12 +108,12 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
                 .withActionBarDrawerToggle(true)
                 .addDrawerItems(
                         item1,
+                        item2,
                         item3,
                         new DividerDrawerItem(),
                         settings,
                         feedback,
                         about
-
                 )
                 .build();
 
@@ -131,22 +126,22 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
 
             switch((int) drawerItem.getIdentifier()) {
                 case 1:
-                    android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
-                    HomeFragment fragment = new HomeFragment();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.fragment_container,fragment);
-                    fragmentTransaction.commit();
+                    break;
+
+                case 2:
+                    intent = new Intent(MainActivity.this, CardsActivity.class);
+                    startActivity(intent);
                     break;
 
                 case 3:
-                    intent = new Intent(MainActivity.this, VideoActivity.class);
+                  intent = new Intent(MainActivity.this, VideoActivity.class);
                     startActivity(intent);
                     break;
 
                 case 4:
-                    intent = new Intent(MainActivity.this, SettingsActivity.class);
-                    startActivity(intent);
-                    break;
+                  intent = new Intent(MainActivity.this, SettingsActivity.class);
+                  startActivity(intent);
+                  break;
 
                 case 5:
                     //Start a new activity for sending a feedback email
@@ -171,12 +166,6 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
         }
     });
     }
-
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
-    }
-
 
 }
 
