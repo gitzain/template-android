@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
         //if you want to update the items at a later time it is recommended to keep it in a variable
         PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(1).withName(R.string.drawer_item_home).withIcon(ic_home);
         PrimaryDrawerItem item2 = new PrimaryDrawerItem().withIdentifier(2).withName(R.string.drawer_item_cards).withIcon(ic_dashboard);
-        PrimaryDrawerItem item3 = new PrimaryDrawerItem().withIdentifier(3).withName(R.string.drawer_item_video).withIcon(ic_home);
+        PrimaryDrawerItem item3 = new PrimaryDrawerItem().withIdentifier(3).withName(R.string.drawer_item_video).withIcon(ic_dashboard);
       
         SecondaryDrawerItem settings = new SecondaryDrawerItem().withIdentifier(4).withName(R.string.drawer_item_settings).withIcon(ic_settings);
         SecondaryDrawerItem feedback = new SecondaryDrawerItem().withIdentifier(5).withName(R.string.drawer_item_feedback).withIcon(ic_feedback);

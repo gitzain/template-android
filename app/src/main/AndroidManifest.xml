@@ -30,7 +30,8 @@
 
         <activity
             android:name=".CardsActivity"
-            android:label="@string/title_activity_cards"></activity>
+            android:label="@string/title_activity_cards">
+        </activity>
 
         <activity android:name=".VideoActivity"
             android:configChanges="orientation|screenSize">
