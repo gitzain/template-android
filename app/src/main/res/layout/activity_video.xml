@@ -4,7 +4,7 @@
     android:layout_height="fill_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="#000"
-    tools:context="com.iamzain.template_android.VideoActivity">
+    tools:context="com.iamzain.template_android.activities.VideoActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"

@@ -1,4 +1,4 @@
-package com.iamzain.template_android;
+package com.iamzain.template_android.activities;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -12,6 +12,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.iamzain.template_android.R;
+import com.iamzain.template_android.authenticator.SessionManager;
+
 import butterknife.*;
 
 public class LoginActivity extends AppCompatActivity {
@@ -22,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
     private static final int REQUEST_SIGNUP = 0;
 
-    @BindView(R.id.input_email) EditText _emailText;
+    @BindView(com.iamzain.template_android.R.id.input_email) EditText _emailText;
     @BindView(R.id.input_password) EditText _passwordText;
     @BindView(R.id.btn_login) Button _loginButton;
     @BindView(R.id.link_signup) TextView _signupLink;

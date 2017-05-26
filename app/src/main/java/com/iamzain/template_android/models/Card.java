@@ -1,4 +1,4 @@
-package com.iamzain.template_android;
+package com.iamzain.template_android.models;
 
 /**
  * Created by zain on 5/15/17.

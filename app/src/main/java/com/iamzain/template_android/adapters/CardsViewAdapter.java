@@ -1,4 +1,4 @@
-package com.iamzain.template_android;
+package com.iamzain.template_android.adapters;
 
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
@@ -6,6 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.iamzain.template_android.models.Card;
+import com.iamzain.template_android.R;
 
 import java.util.List;
 

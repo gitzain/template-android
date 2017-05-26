@@ -1,4 +1,4 @@
-package com.iamzain.template_android;
+package com.iamzain.template_android.fragments;
 
 
 import android.os.Bundle;
@@ -12,6 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.github.florent37.materialviewpager.header.MaterialViewPagerHeaderDecorator;
+import com.iamzain.template_android.models.Card;
+import com.iamzain.template_android.R;
+import com.iamzain.template_android.adapters.CardsViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

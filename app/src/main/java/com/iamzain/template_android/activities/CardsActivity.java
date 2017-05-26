@@ -1,4 +1,4 @@
-package com.iamzain.template_android;
+package com.iamzain.template_android.activities;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,10 +8,10 @@ import android.support.v7.widget.Toolbar;
 
 import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.github.florent37.materialviewpager.header.HeaderDesign;
+import com.iamzain.template_android.models.Card;
+import com.iamzain.template_android.fragments.CardsViewFragment;
+import com.iamzain.template_android.R;
 
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

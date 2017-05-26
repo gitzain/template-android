@@ -1,4 +1,4 @@
-package com.iamzain.template_android;
+package com.iamzain.template_android.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.iamzain.template_android.R;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
@@ -21,12 +22,13 @@ import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 
 import butterknife.ButterKnife;
 
-import static com.iamzain.template_android.R.drawable.*;
+import static com.iamzain.template_android.R.drawable.ic_dashboard;
+import static com.iamzain.template_android.R.drawable.ic_feedback;
+import static com.iamzain.template_android.R.drawable.ic_home;
+import static com.iamzain.template_android.R.drawable.ic_info;
+import static com.iamzain.template_android.R.drawable.ic_settings;
 
-public class MainActivity extends AppCompatActivity {
-
-    // Session Manager Class
-    SessionManager session;
+public abstract class BaseActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private Drawer navigationDrawer;
@@ -34,22 +36,15 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawer;
     private ActionBarDrawerToggle mDrawerToggle;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        session = new SessionManager(getApplicationContext());
-        //session.checkLogin();
-        //HashMap<String, String> user = session.getUserDetails();
-        //String email = user.get(SessionManager.KEY_EMAIL);
+        setContentView(R.layout.activity_base);
 
         AccountHeader accountHeader = createAccountHeader("test");
         createNavigationDrawer(accountHeader);
 
         ButterKnife.bind(this);
-        setTitle(R.string.cards_title);
 
         createToolbar();
     }
@@ -98,12 +93,14 @@ public class MainActivity extends AppCompatActivity {
     {
         //if you want to update the items at a later time it is recommended to keep it in a variable
         PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(1).withName(R.string.drawer_item_home).withIcon(ic_home);
-        PrimaryDrawerItem item2 = new PrimaryDrawerItem().withIdentifier(2).withName(R.string.drawer_item_cards).withIcon(ic_dashboard);
-        PrimaryDrawerItem item3 = new PrimaryDrawerItem().withIdentifier(3).withName(R.string.drawer_item_video).withIcon(ic_dashboard);
+        PrimaryDrawerItem item2 = new PrimaryDrawerItem().withIdentifier(2).withName(R.string.drawer_item_login).withIcon(ic_dashboard);
+        PrimaryDrawerItem item3 = new PrimaryDrawerItem().withIdentifier(3).withName(R.string.drawer_item_cards).withIcon(ic_dashboard);
+        PrimaryDrawerItem item4 = new PrimaryDrawerItem().withIdentifier(4).withName(R.string.drawer_item_video).withIcon(ic_dashboard);
 
-        SecondaryDrawerItem settings = new SecondaryDrawerItem().withIdentifier(4).withName(R.string.drawer_item_settings).withIcon(ic_settings);
-        SecondaryDrawerItem feedback = new SecondaryDrawerItem().withIdentifier(5).withName(R.string.drawer_item_feedback).withIcon(ic_feedback);
-        SecondaryDrawerItem about = new SecondaryDrawerItem().withIdentifier(6).withName(R.string.drawer_item_about).withIcon(ic_info);
+
+        SecondaryDrawerItem settings = new SecondaryDrawerItem().withIdentifier(10).withName(R.string.drawer_item_settings).withIcon(ic_settings);
+        SecondaryDrawerItem feedback = new SecondaryDrawerItem().withIdentifier(11).withName(R.string.drawer_item_feedback).withIcon(ic_feedback);
+        SecondaryDrawerItem about = new SecondaryDrawerItem().withIdentifier(12).withName(R.string.drawer_item_about).withIcon(ic_info);
 
         //create the drawer and remember the `Drawer` navigationDrawer object
         navigationDrawer = new DrawerBuilder()
@@ -115,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
                         item1,
                         item2,
                         item3,
+                        item4,
                         new DividerDrawerItem(),
                         settings,
                         feedback,
@@ -134,21 +132,26 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case 2:
-                        intent = new Intent(MainActivity.this, CardsActivity.class);
+                        intent = new Intent(getApplicationContext(), LoginActivity.class);
                         startActivity(intent);
                         break;
 
                     case 3:
-                        intent = new Intent(MainActivity.this, VideoActivity.class);
+                        intent = new Intent(getApplicationContext(), CardsActivity.class);
                         startActivity(intent);
                         break;
 
                     case 4:
-                        intent = new Intent(MainActivity.this, SettingsActivity.class);
+                        intent = new Intent(getApplicationContext(), VideoActivity.class);
                         startActivity(intent);
                         break;
 
-                    case 5:
+                    case 10:
+                        intent = new Intent(getApplicationContext(), SettingsActivity.class);
+                        startActivity(intent);
+                        break;
+
+                    case 11:
                         //Start a new activity for sending a feedback email
                         intent = new Intent(android.content.Intent.ACTION_SEND);
                         intent.setType("text/html");
@@ -158,8 +161,8 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(Intent.createChooser(intent, getString(R.string.title_send_feedback)));
                         break;
 
-                    case 6:
-                        intent = new Intent(MainActivity.this, AboutActivity.class);
+                    case 12:
+                        intent = new Intent(getApplicationContext(), AboutActivity.class);
                         startActivity(intent);
                         break;
 
@@ -173,5 +176,3 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
-
-
