@@ -1,4 +1,4 @@
-package com.iamzain.template_android;
+package com.iamzain.template_android.activities;
 
 import android.content.SharedPreferences;
 import android.preference.CheckBoxPreference;
@@ -9,6 +9,8 @@ import android.os.Bundle;
 
 import android.preference.PreferenceFragment;
 import android.support.v7.widget.Toolbar;
+
+import com.iamzain.template_android.R;
 
 public class SettingsActivity extends AppCompatActivity {
 

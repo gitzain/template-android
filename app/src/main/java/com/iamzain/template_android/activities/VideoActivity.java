@@ -1,4 +1,4 @@
-package com.iamzain.template_android;
+package com.iamzain.template_android.activities;
 
 import android.content.res.Configuration;
 import android.graphics.Color;
@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.MediaController;
 import android.widget.VideoView;
+
+import com.iamzain.template_android.R;
 
 import static com.iamzain.template_android.R.id.videoView;
 
