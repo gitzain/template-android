@@ -120,7 +120,7 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     private void launchHomeScreen() {
-        prefManager.setFirstTimeLaunch(false);
+        prefManager.setFirstTimeLaunch(true); // this needs to be changed to false so this screen only runs once.
         startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
         finish();
     }

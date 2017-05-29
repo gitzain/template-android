@@ -93,9 +93,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     {
         //if you want to update the items at a later time it is recommended to keep it in a variable
         PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(1).withName(R.string.drawer_item_home).withIcon(ic_home);
-        PrimaryDrawerItem item2 = new PrimaryDrawerItem().withIdentifier(2).withName(R.string.drawer_item_login).withIcon(ic_dashboard);
-        PrimaryDrawerItem item3 = new PrimaryDrawerItem().withIdentifier(3).withName(R.string.drawer_item_cards).withIcon(ic_dashboard);
-        PrimaryDrawerItem item4 = new PrimaryDrawerItem().withIdentifier(4).withName(R.string.drawer_item_video).withIcon(ic_dashboard);
+        PrimaryDrawerItem item2 = new PrimaryDrawerItem().withIdentifier(2).withName(R.string.drawer_item_welcome).withIcon(ic_dashboard);
+        PrimaryDrawerItem item5 = new PrimaryDrawerItem().withIdentifier(3).withName(R.string.drawer_item_login).withIcon(ic_dashboard);
+        PrimaryDrawerItem item3 = new PrimaryDrawerItem().withIdentifier(4).withName(R.string.drawer_item_cards).withIcon(ic_dashboard);
+        PrimaryDrawerItem item4 = new PrimaryDrawerItem().withIdentifier(5).withName(R.string.drawer_item_video).withIcon(ic_dashboard);
 
 
         SecondaryDrawerItem settings = new SecondaryDrawerItem().withIdentifier(10).withName(R.string.drawer_item_settings).withIcon(ic_settings);
@@ -111,6 +112,7 @@ public abstract class BaseActivity extends AppCompatActivity {
                 .addDrawerItems(
                         item1,
                         item2,
+                        item5,
                         item3,
                         item4,
                         new DividerDrawerItem(),
@@ -132,16 +134,21 @@ public abstract class BaseActivity extends AppCompatActivity {
                         break;
 
                     case 2:
-                        intent = new Intent(getApplicationContext(), LoginActivity.class);
+                        intent = new Intent(getApplicationContext(), WelcomeActivity.class);
                         startActivity(intent);
                         break;
 
                     case 3:
-                        intent = new Intent(getApplicationContext(), CardsActivity.class);
+                        intent = new Intent(getApplicationContext(), LoginActivity.class);
                         startActivity(intent);
                         break;
 
                     case 4:
+                        intent = new Intent(getApplicationContext(), CardsActivity.class);
+                        startActivity(intent);
+                        break;
+
+                    case 5:
                         intent = new Intent(getApplicationContext(), VideoActivity.class);
                         startActivity(intent);
                         break;
