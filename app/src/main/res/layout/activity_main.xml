@@ -3,22 +3,4 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
-
-
-    <!-- As the main content view, the view below consumes the entire
-     space available using match_parent in both dimensions. -->
-    <FrameLayout
-        android:id="@+id/fragment_container"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_below="@+id/toolbar">
-    </FrameLayout>
-
 </RelativeLayout>

@@ -26,19 +26,16 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.AboutActivity" />
-
         <activity android:name=".activities.SettingsActivity" />
-
         <activity
             android:name=".activities.CardsActivity"
             android:label="@string/title_activity_cards" />
-
         <activity
             android:name=".activities.VideoActivity"
             android:configChanges="orientation|screenSize" />
         <activity android:name=".activities.WelcomeActivity" />
-
-        <activity android:name=".activities.SignupActivity"></activity>
+        <activity android:name=".activities.SignupActivity" />
+        <activity android:name=".activities.FragmentsActivity"></activity>
     </application>
 
 </manifest>
