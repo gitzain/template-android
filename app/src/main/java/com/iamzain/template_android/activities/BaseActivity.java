@@ -2,6 +2,7 @@ package com.iamzain.template_android.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -97,6 +98,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         PrimaryDrawerItem item5 = new PrimaryDrawerItem().withIdentifier(3).withName(R.string.drawer_item_login).withIcon(ic_dashboard);
         PrimaryDrawerItem item3 = new PrimaryDrawerItem().withIdentifier(4).withName(R.string.drawer_item_cards).withIcon(ic_dashboard);
         PrimaryDrawerItem item4 = new PrimaryDrawerItem().withIdentifier(5).withName(R.string.drawer_item_video).withIcon(ic_dashboard);
+        PrimaryDrawerItem item6 = new PrimaryDrawerItem().withIdentifier(6).withName(R.string.drawer_item_fragments).withIcon(ic_dashboard);
 
 
         SecondaryDrawerItem settings = new SecondaryDrawerItem().withIdentifier(10).withName(R.string.drawer_item_settings).withIcon(ic_settings);
@@ -115,6 +117,7 @@ public abstract class BaseActivity extends AppCompatActivity {
                         item5,
                         item3,
                         item4,
+                        item6,
                         new DividerDrawerItem(),
                         settings,
                         feedback,
@@ -150,6 +153,11 @@ public abstract class BaseActivity extends AppCompatActivity {
 
                     case 5:
                         intent = new Intent(getApplicationContext(), VideoActivity.class);
+                        startActivity(intent);
+                        break;
+
+                    case 6:
+                        intent = new Intent(getApplicationContext(), FragmentsActivity.class);
                         startActivity(intent);
                         break;
 
