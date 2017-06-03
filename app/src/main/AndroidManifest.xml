@@ -3,6 +3,7 @@
     package="com.iamzain.template_android"
     android:versionName="@string/version">
 
+    <!---Step permissions the app needs here-->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -12,34 +13,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".activities.LoginActivity"
-            android:theme="@style/AppTheme.BrandedLaunch" />
+
+        <!---All the activities the app has are declared here-->
         <activity
             android:name=".activities.MainActivity"
-            android:label="@string/app_name"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
+        <activity
+            android:name=".activities.LoginActivity"
+            android:theme="@style/AppTheme.BrandedLaunch" />
+        <activity android:name=".activities.SignupActivity" />
         <activity android:name=".activities.AboutActivity" />
         <activity android:name=".activities.SettingsActivity" />
-        <activity
-            android:name=".activities.CardsActivity"
-            android:label="@string/title_activity_cards" />
+        <activity android:name=".activities.CardsActivity" />
         <activity
             android:name=".activities.VideoActivity"
             android:configChanges="orientation|screenSize" />
         <activity android:name=".activities.WelcomeActivity" />
-        <activity android:name=".activities.SignupActivity" />
         <activity android:name=".activities.FragmentsActivity" />
         <activity android:name=".activities.StepperActivity">
-
-
 
         </activity>
     </application>
