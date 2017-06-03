@@ -31,6 +31,7 @@
     <string name="drawer_item_login">Login Activity</string>
     <string name="drawer_item_welcome">Welcome Activity</string>
     <string name="drawer_item_fragments">Fragements Activity</string>
+    <string name="drawer_item_stepper">Stepper Activity</string>
     <!-- Navigation drawer feedback button text -->
     <string name="mail_feedback_email">Feedback</string>
     <string name="mail_feedback_subject">Feedback</string>

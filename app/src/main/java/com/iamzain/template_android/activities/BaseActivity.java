@@ -99,6 +99,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         PrimaryDrawerItem item3 = new PrimaryDrawerItem().withIdentifier(4).withName(R.string.drawer_item_cards).withIcon(ic_dashboard);
         PrimaryDrawerItem item4 = new PrimaryDrawerItem().withIdentifier(5).withName(R.string.drawer_item_video).withIcon(ic_dashboard);
         PrimaryDrawerItem item6 = new PrimaryDrawerItem().withIdentifier(6).withName(R.string.drawer_item_fragments).withIcon(ic_dashboard);
+        PrimaryDrawerItem item7 = new PrimaryDrawerItem().withIdentifier(7).withName(R.string.drawer_item_stepper).withIcon(ic_dashboard);
 
 
         SecondaryDrawerItem settings = new SecondaryDrawerItem().withIdentifier(10).withName(R.string.drawer_item_settings).withIcon(ic_settings);
@@ -118,6 +119,7 @@ public abstract class BaseActivity extends AppCompatActivity {
                         item3,
                         item4,
                         item6,
+                        item7,
                         new DividerDrawerItem(),
                         settings,
                         feedback,
@@ -158,6 +160,11 @@ public abstract class BaseActivity extends AppCompatActivity {
 
                     case 6:
                         intent = new Intent(getApplicationContext(), FragmentsActivity.class);
+                        startActivity(intent);
+                        break;
+
+                    case 7:
+                        intent = new Intent(getApplicationContext(), StepperActivity.class);
                         startActivity(intent);
                         break;
 
